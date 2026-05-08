@@ -12,10 +12,42 @@ export const metadata: Metadata = {
 const PHONE = "(314) 779-0000";
 const PHONE_HREF = "tel:+13147790000";
 
+// SVG icon components for service cards
+const SvgAlert = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+  </svg>
+);
+const SvgSearch = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803a7.5 7.5 0 0010.607 0z" />
+  </svg>
+);
+const SvgHome = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75" />
+  </svg>
+);
+const SvgGrid = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+  </svg>
+);
+const SvgRoof = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819" />
+  </svg>
+);
+const SvgWater = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+  </svg>
+);
+
 const services = [
   {
     id: "black-mold",
-    icon: "🖤",
+    icon: <SvgAlert />,
     title: "Black Mold Removal",
     heading: "Black Mold (Stachybotrys) Removal",
     body: `Black mold produces mycotoxins that can cause respiratory problems, fatigue, and serious health issues — especially dangerous for children, elderly, and those with asthma. Stachybotrys chartarum thrives in areas with prolonged moisture exposure: basement walls, bathroom ceilings, HVAC ducts, and drywall behind leaky pipes.
@@ -32,7 +64,7 @@ We do not use bleach as a primary treatment. Bleach kills surface mold but does 
   },
   {
     id: "inspection",
-    icon: "🔍",
+    icon: <SvgSearch />,
     title: "Mold Inspection & Air Quality Testing",
     heading: "Certified Mold Inspection & Lab-Grade Air Testing",
     body: `Not all mold is visible. Our certified inspectors use a combination of tools to find mold that's already behind walls, under flooring, and inside HVAC systems before it spreads further.
@@ -51,7 +83,7 @@ This report can be used with your insurance company, real estate agent, or mortg
   },
   {
     id: "basement",
-    icon: "🏚️",
+    icon: <SvgHome />,
     title: "Basement Mold Remediation",
     heading: "Basement Mold Removal in St. Louis",
     body: `St. Louis basements are the #1 location for mold growth — and the #1 call we get. The combination of high water table, clay-heavy soil that retains moisture, and finished basements with drywall and carpet creates ideal mold conditions.
@@ -68,7 +100,7 @@ Our basement remediation always includes identification and documentation of the
   },
   {
     id: "crawl-space",
-    icon: "🕳️",
+    icon: <SvgGrid />,
     title: "Crawl Space Mold Removal",
     heading: "Crawl Space Mold Remediation",
     body: `Crawl spaces are almost always humid, often have standing water seasonally, and are filled with wood framing that mold loves. Most homeowners don't know they have a crawl space mold problem until a home inspector finds it — or they smell it upstairs.
@@ -86,7 +118,7 @@ After remediation, we assess whether the crawl space needs a vapor barrier or fu
   },
   {
     id: "attic",
-    icon: "🏠",
+    icon: <SvgRoof />,
     title: "Attic Mold Remediation",
     heading: "Attic Mold Removal St. Louis",
     body: `Attics are one of the most overlooked mold locations — and one of the most common issues we find during pre-listing inspections. The cause is almost always a ventilation problem: insufficient soffit or ridge vents, blocked ventilation from insulation, or bathroom exhaust fans venting into the attic instead of outside.
@@ -102,7 +134,7 @@ We do not recommend painting over attic mold. Encapsulant coatings do not fix th
   },
   {
     id: "flood",
-    icon: "💧",
+    icon: <SvgWater />,
     title: "Post-Flood Mold Remediation",
     heading: "Emergency Mold Response After Flooding",
     body: `After a flood or major water intrusion event, you have a 24–48 hour window before mold begins to establish. After 72 hours, you're in mold remediation territory — not just water damage drying.
@@ -138,7 +170,7 @@ export default function ServicesPage() {
                 href={PHONE_HREF}
                 className="inline-block bg-[#1a6b3c] hover:bg-[#134f2d] text-white font-semibold px-8 py-4 rounded-md transition-colors text-[15px]"
               >
-                📞 Call {PHONE} — Free Inspection
+                Call {PHONE} — Free Inspection
               </a>
             </div>
             <div className="hidden md:block">
@@ -179,7 +211,9 @@ export default function ServicesPage() {
             className={`rounded-xl p-8 border ${i % 2 === 0 ? "bg-white border-[#d3cec6]" : "bg-[#f5f1ec] border-[#ebe7e1]"}`}
           >
             <div className="flex items-start gap-4 mb-5">
-              <span className="text-4xl">{s.icon}</span>
+              <div className="w-11 h-11 bg-[#e8f5ee] rounded-lg flex items-center justify-center flex-shrink-0">
+                {s.icon}
+              </div>
               <div>
                 <h2 className="text-2xl font-semibold tracking-tight">{s.heading}</h2>
                 <p className="text-[#1a6b3c] text-[13px] font-semibold mt-1">Typical cost: {s.cost}</p>

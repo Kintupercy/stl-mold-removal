@@ -34,13 +34,17 @@ export default function HeroForm() {
   if (submitted) {
     return (
       <div className="bg-white rounded-2xl p-8 text-center shadow-2xl">
-        <div className="text-5xl mb-3">✅</div>
+        <div className="w-14 h-14 bg-[#e8f5ee] rounded-full flex items-center justify-center mx-auto mb-3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7 text-[#1a6b3c]">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
         <h3 className="text-xl font-bold text-[#111111] mb-2">We&apos;ll Call You Shortly!</h3>
         <p className="text-[#626260] text-[14px] mb-5">
           Your free inspection is confirmed. Expect a call within the hour.
         </p>
         <a href={PHONE_HREF} className="text-[#1a6b3c] font-bold text-lg hover:underline">
-          📞 {PHONE}
+          {PHONE}
         </a>
       </div>
     );
@@ -85,11 +89,11 @@ export default function HeroForm() {
           disabled={loading}
           className="w-full bg-[#1a6b3c] hover:bg-[#134f2d] disabled:opacity-60 text-white font-bold py-4 rounded-xl text-[16px] transition-colors shadow-md"
         >
-          {loading ? "Sending…" : "🔍 Schedule Free Inspection →"}
+          {loading ? "Sending…" : "Schedule Free Inspection →"}
         </button>
 
         <p className="text-center text-[11px] text-[#9c9fa5]">
-          🔒 Secure · No spam · Mon–Sat 7 AM–7 PM
+          Secure · No spam · Mon–Sat 7 AM–7 PM
         </p>
 
         <div className="border-t border-[#f0ece6] pt-4 text-center">

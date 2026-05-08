@@ -16,37 +16,63 @@ const PHONE_HREF = "tel:+13147790000";
 
 const services = [
   {
-    icon: "🖤",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+      </svg>
+    ),
     title: "Black Mold Removal",
     desc: "Full containment and removal of Stachybotrys using EPA-approved protocols. Verified with post-clearance air testing.",
     id: "black-mold",
   },
   {
-    icon: "🔍",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803a7.5 7.5 0 0010.607 0z" />
+      </svg>
+    ),
     title: "Mold Inspection & Testing",
     desc: "Moisture meters, thermal imaging, and lab-certified air sampling to find hidden mold before it spreads.",
     id: "inspection",
   },
   {
-    icon: "🏚️",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+      </svg>
+    ),
     title: "Basement Mold Remediation",
     desc: "We treat concrete walls, wooden joists, and sump areas — then fix the moisture source so it stays gone.",
     id: "basement",
   },
   {
-    icon: "🕳️",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 18.75a3 3 0 106 0 3 3 0 00-6 0z" />
+      </svg>
+    ),
     title: "Crawl Space Mold Removal",
     desc: "Full remediation of crawl space mold plus encapsulation recommendations to prevent recurrence.",
     id: "crawl-space",
   },
   {
-    icon: "🏠",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18l2.25 2.25m0 0l2.25-2.25M6.75 5.25v15M8.25 3H12m3.75 0H12m0 0v2.25M12 3L9.75 5.25M12 3l2.25 2.25M17.25 5.25v15m-10.5 0h10.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+      </svg>
+    ),
     title: "Attic Mold Remediation",
     desc: "Remove attic mold caused by poor ventilation or roof leaks, then restore proper airflow.",
     id: "attic",
   },
   {
-    icon: "💧",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 text-[#1a6b3c]">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c-4.97 0-9 3.185-9 7.115 0 2.557 1.522 4.82 3.889 6.185L6 21h12l-.889-4.7C19.478 14.935 21 12.672 21 10.115 21 6.185 16.97 3 12 3z" />
+      </svg>
+    ),
     title: "Post-Flood Mold Response",
     desc: "Fast mobilization after flooding or water damage events across the entire St. Louis metro.",
     id: "flood",
@@ -241,7 +267,9 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((s) => (
               <div key={s.id} id={s.id} className="bg-white border border-[#d3cec6] rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="text-3xl mb-3">{s.icon}</div>
+                <div className="w-11 h-11 bg-[#e8f5ee] rounded-lg flex items-center justify-center mb-4">
+                  {s.icon}
+                </div>
                 <h3 className="text-[17px] font-semibold mb-2">{s.title}</h3>
                 <p className="text-[#626260] text-[14px] leading-relaxed">{s.desc}</p>
               </div>
@@ -388,7 +416,7 @@ export default function HomePage() {
               href={PHONE_HREF}
               className="bg-white text-[#1a6b3c] font-bold px-8 py-4 rounded-md hover:bg-[#f5f1ec] transition-colors text-[16px]"
             >
-              📞 Call {PHONE}
+              Call {PHONE}
             </a>
             <Link
               href="/contact"

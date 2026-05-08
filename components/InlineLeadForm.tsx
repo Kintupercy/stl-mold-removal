@@ -46,13 +46,17 @@ export default function InlineLeadForm({
   if (submitted) {
     return (
       <div className="bg-[#e8f5ee] border-2 border-[#1a6b3c] rounded-2xl p-8 text-center">
-        <div className="text-5xl mb-3">✅</div>
+        <div className="w-14 h-14 bg-[#1a6b3c] rounded-full flex items-center justify-center mx-auto mb-3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-7 h-7 text-white">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+        </div>
         <h3 className="text-xl font-bold text-[#111111] mb-2">Request Received!</h3>
         <p className="text-[#626260] text-[14px] mb-4">
           We&apos;ll call you within the hour to schedule your free inspection.
         </p>
         <a href={PHONE_HREF} className="text-[#1a6b3c] font-bold text-lg hover:text-[#134f2d] transition-colors">
-          📞 {PHONE}
+          {PHONE}
         </a>
       </div>
     );
@@ -96,7 +100,7 @@ export default function InlineLeadForm({
           disabled={loading}
           className="w-full bg-[#1a6b3c] hover:bg-[#2d8a50] disabled:opacity-60 text-white font-bold py-4 rounded-xl text-[15px] transition-colors shadow-lg mt-1"
         >
-          {loading ? "Sending…" : "🔍 Schedule My Free Inspection →"}
+          {loading ? "Sending…" : "Schedule My Free Inspection →"}
         </button>
 
         <div className="border-t border-white/10 pt-4 text-center">
