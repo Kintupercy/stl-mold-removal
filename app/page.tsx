@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
 import Image from "next/image";
+import HeroForm from "@/components/HeroForm";
 
 export const metadata: Metadata = {
   title: "Mold Removal St. Louis, MO | Free Inspection | STL Mold Removal",
@@ -140,7 +141,7 @@ export default function HomePage() {
       />
 
       {/* ── HERO ── */}
-      <section className="relative text-white overflow-hidden">
+      <section className="relative text-white overflow-hidden min-h-[600px]">
         {/* Background image with dark overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -150,56 +151,70 @@ export default function HomePage() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/60" />
         </div>
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-[#1a6b3c]/20 border border-[#1a6b3c]/40 text-[#2d8a50] text-[13px] font-medium px-3 py-1.5 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2d8a50] animate-pulse" />
-              Free Inspections — Same-Day Scheduling
-            </div>
-            <h1 className="text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight mb-5">
-              Mold Removal &amp; Remediation in{" "}
-              <span className="text-[#2d8a50]">St. Louis, MO</span>
-            </h1>
-            <p className="text-[#9c9fa5] text-lg leading-relaxed mb-8">
-              Certified mold remediation for St. Louis homeowners and businesses. We locate the source, contain the spread, remove the mold, and treat the area — so it doesn't come back.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href={PHONE_HREF}
-                className="bg-[#1a6b3c] hover:bg-[#134f2d] text-white font-semibold px-6 py-3.5 rounded-md transition-colors text-center text-[15px]"
-              >
-                📞 Call {PHONE}
-              </a>
-              <Link
-                href="/contact"
-                className="bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3.5 rounded-md transition-colors text-center text-[15px] border border-white/20"
-              >
-                Request Free Inspection →
-              </Link>
-            </div>
-            <p className="text-[#626260] text-[13px] mt-4">Mon–Sat 7 AM–7 PM · Emergency response available</p>
-          </div>
 
-          {/* Trust card */}
-          <div className="bg-black/60 backdrop-blur-sm border border-white/10 rounded-xl p-7">
-            <h2 className="text-white text-[18px] font-semibold mb-5">Why St. Louis Homes Are Vulnerable</h2>
-            <p className="text-[#9c9fa5] text-[15px] leading-relaxed mb-6">
-              St. Louis sits in a humid continental climate — hot, wet summers and fluctuating humidity levels year-round. Basements, crawl spaces, attics, and HVAC systems are prime mold breeding grounds. After heavy rain, mold can begin growing in <strong className="text-white">24–48 hours</strong>.
-            </p>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Avg. Job Value", value: "$2,200" },
-                { label: "Growth Window", value: "24–48 hrs" },
-                { label: "Jobs Completed", value: "500+" },
-                { label: "Response Time", value: "Same Day" },
-              ].map((s) => (
-                <div key={s.label} className="bg-black/40 rounded-lg p-4 border border-white/10">
-                  <p className="text-[#2d8a50] text-xl font-bold">{s.value}</p>
-                  <p className="text-[#626260] text-[12px] mt-0.5">{s.label}</p>
-                </div>
-              ))}
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+          <div className="grid md:grid-cols-[1fr_420px] gap-10 items-start">
+
+            {/* LEFT — Headline + trust signals */}
+            <div className="flex flex-col justify-center">
+              <div className="inline-flex items-center gap-2 bg-[#1a6b3c]/20 border border-[#1a6b3c]/40 text-[#2d8a50] text-[12px] font-semibold px-3 py-1.5 rounded-full mb-5 w-fit uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2d8a50] animate-pulse" />
+                St. Louis, Missouri
+              </div>
+
+              <h1 className="text-4xl md:text-[52px] font-bold leading-[1.05] tracking-tight mb-4">
+                Remove Mold From<br />
+                <span className="text-[#2d8a50]">Your St. Louis Home</span><br />
+                — For Good.
+              </h1>
+
+              <p className="text-[#b0b0a8] text-[17px] leading-relaxed mb-7 max-w-lg">
+                Certified mold remediation serving all of greater St. Louis. We find the source, contain the spread, and eliminate it permanently — with a written guarantee.
+              </p>
+
+              {/* Trust badges — like stlouishomelenders */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {[
+                  "✓ 100% Free Inspection",
+                  "🔒 Licensed & Insured",
+                  "⚡ Same-Day Response",
+                  "📋 Written Estimate",
+                ].map((b) => (
+                  <span key={b} className="bg-white/10 border border-white/20 text-white text-[12px] font-medium px-3 py-1.5 rounded-full">
+                    {b}
+                  </span>
+                ))}
+              </div>
+
+              {/* Stats row */}
+              <div className="flex gap-8">
+                {[
+                  { value: "500+", label: "Jobs Completed" },
+                  { value: "4.9★", label: "Avg. Rating" },
+                  { value: "$0", label: "Inspection Cost" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <p className="text-[#2d8a50] text-2xl font-bold">{s.value}</p>
+                    <p className="text-[#7b7b78] text-[11px] uppercase tracking-wide mt-0.5">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Phone fallback */}
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <p className="text-[#7b7b78] text-[12px] mb-1">Prefer to call?</p>
+                <a href={PHONE_HREF} className="text-white font-bold text-xl hover:text-[#2d8a50] transition-colors">
+                  📞 {PHONE}
+                </a>
+                <p className="text-[#626260] text-[11px] mt-1">Mon–Sat 7 AM–7 PM · Emergency line available</p>
+              </div>
+            </div>
+
+            {/* RIGHT — Embedded lead capture form */}
+            <div className="w-full">
+              <HeroForm />
             </div>
           </div>
         </div>

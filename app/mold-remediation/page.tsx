@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import InlineLeadForm from "@/components/InlineLeadForm";
 
 export const metadata: Metadata = {
-  title: "Mold Remediation Services St. Louis, MO",
+  title: "Mold Remediation Services St. Louis, MO | STL Mold Removal",
   description:
     "Full-service mold remediation in St. Louis: black mold removal, basement & crawl space treatment, air testing, and post-flood response. Free inspection. Call now.",
   alternates: { canonical: "https://stlmoldremoval.com/mold-remediation" },
@@ -123,21 +124,39 @@ export default function ServicesPage() {
     <>
       {/* Hero */}
       <section className="bg-[#111111] text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-[#2d8a50] text-[13px] font-semibold uppercase tracking-widest mb-3">Services</p>
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-5">
-            Mold Remediation Services<br />in St. Louis, MO
-          </h1>
-          <p className="text-[#9c9fa5] text-[17px] max-w-2xl mx-auto mb-8">
-            From black mold to post-flood emergencies, we handle every type of mold situation across the St. Louis metro. Licensed, insured, and IICRC-certified.
-          </p>
-          <a
-            href={PHONE_HREF}
-            className="inline-block bg-[#1a6b3c] hover:bg-[#134f2d] text-white font-semibold px-8 py-4 rounded-md transition-colors text-[15px]"
-          >
-            📞 Call {PHONE} — Free Inspection
-          </a>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-[1fr_380px] gap-10 items-start">
+            <div>
+              <p className="text-[#2d8a50] text-[13px] font-semibold uppercase tracking-widest mb-3">Services</p>
+              <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-5">
+                Mold Remediation Services<br />in St. Louis, MO
+              </h1>
+              <p className="text-[#9c9fa5] text-[17px] max-w-2xl mb-8">
+                From black mold to post-flood emergencies, we handle every type of mold situation across the St. Louis metro. Licensed, insured, and IICRC-certified.
+              </p>
+              <a
+                href={PHONE_HREF}
+                className="inline-block bg-[#1a6b3c] hover:bg-[#134f2d] text-white font-semibold px-8 py-4 rounded-md transition-colors text-[15px]"
+              >
+                📞 Call {PHONE} — Free Inspection
+              </a>
+            </div>
+            <div className="hidden md:block">
+              <InlineLeadForm
+                heading="Schedule Your Free Inspection"
+                subheading="Same-day availability · We call within 1 hour"
+              />
+            </div>
+          </div>
         </div>
+      </section>
+
+      {/* Mobile form */}
+      <section className="md:hidden bg-[#f5f1ec] px-4 py-8">
+        <InlineLeadForm
+          heading="Schedule Your Free Inspection"
+          subheading="Same-day availability · We call within 1 hour"
+        />
       </section>
 
       {/* Jump links */}
@@ -179,20 +198,29 @@ export default function ServicesPage() {
         ))}
       </div>
 
-      {/* CTA */}
-      <section className="bg-[#1a6b3c] py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-white text-3xl font-semibold tracking-tight mb-4">
-            Ready to Schedule Your Free Inspection?
-          </h2>
-          <p className="text-[#a7d9bc] mb-8">Same-day scheduling available across all of greater St. Louis.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={PHONE_HREF} className="bg-white text-[#1a6b3c] font-bold px-8 py-4 rounded-md hover:bg-[#f5f1ec] transition-colors">
-              📞 {PHONE}
-            </a>
-            <Link href="/contact" className="border-2 border-white text-white font-semibold px-8 py-4 rounded-md hover:bg-white/10 transition-colors">
-              Request Online →
-            </Link>
+      {/* Bottom CTA with inline form */}
+      <section className="bg-[#f5f1ec] py-16 border-t border-[#d3cec6]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight mb-4">
+                Ready to Schedule Your Free Inspection?
+              </h2>
+              <p className="text-[#626260] text-[16px] mb-6">
+                Same-day scheduling available across all of greater St. Louis. We locate all mold, give you a flat-rate written estimate, and complete the job in 1–3 days.
+              </p>
+              <ul className="space-y-2 text-[14px] text-[#626260]">
+                {["✓ IICRC S520 Certified", "✓ Licensed & Fully Insured", "✓ Post-clearance air testing", "✓ Written flat-rate estimate"].map(t => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <InlineLeadForm
+                heading="Get Your Free Inspection"
+                subheading="Fill out the form — we respond within 1 hour"
+              />
+            </div>
           </div>
         </div>
       </section>

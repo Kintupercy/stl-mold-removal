@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import InlineLeadForm from "@/components/InlineLeadForm";
 
 const PHONE = "(314) 779-0000";
 const PHONE_HREF = "tel:+13147790000";
@@ -141,26 +142,46 @@ export default async function SuburbPage({ params }: { params: Promise<{ slug: s
       />
 
       {/* Hero */}
-      <section className="bg-[#111111] text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-[#2d8a50] text-[13px] font-semibold uppercase tracking-widest mb-3">
-            {data.county}
-          </p>
-          <h1 className="text-4xl font-semibold tracking-tight mb-4">
-            Mold Removal &amp; Remediation in {data.name}, MO
-          </h1>
-          <p className="text-[#9c9fa5] text-[17px] max-w-2xl mx-auto mb-8">
-            Certified mold remediation for {data.name} homeowners and businesses. Free inspections, same-day scheduling.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={PHONE_HREF} className="bg-[#1a6b3c] hover:bg-[#134f2d] text-white font-semibold px-6 py-3.5 rounded-md transition-colors">
-              📞 Call {PHONE}
-            </a>
-            <Link href="/contact" className="border-2 border-white/30 text-white font-medium px-6 py-3.5 rounded-md hover:bg-white/10 transition-colors">
-              Request Free Inspection →
-            </Link>
+      <section className="bg-[#111111] text-white py-14">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-[1fr_360px] gap-10 items-start">
+            <div>
+              <p className="text-[#2d8a50] text-[13px] font-semibold uppercase tracking-widest mb-3">
+                {data.county}
+              </p>
+              <h1 className="text-4xl font-semibold tracking-tight mb-4">
+                Mold Removal &amp; Remediation in {data.name}, MO
+              </h1>
+              <p className="text-[#9c9fa5] text-[17px] max-w-xl mb-8">
+                Certified mold remediation for {data.name} homeowners and businesses. Free inspections, same-day scheduling.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a href={PHONE_HREF} className="bg-[#1a6b3c] hover:bg-[#134f2d] text-white font-semibold px-6 py-3.5 rounded-md transition-colors">
+                  📞 Call {PHONE}
+                </a>
+                <Link href="/contact" className="border-2 border-white/30 text-white font-medium px-6 py-3.5 rounded-md hover:bg-white/10 transition-colors">
+                  Request Free Inspection →
+                </Link>
+              </div>
+            </div>
+            <div className="hidden md:block">
+              <InlineLeadForm
+                defaultArea={data.name}
+                heading={`Free Inspection in ${data.name}`}
+                subheading="We respond within 1 hour · Same-day available"
+              />
+            </div>
           </div>
         </div>
+      </section>
+
+      {/* Mobile form */}
+      <section className="md:hidden bg-[#f5f1ec] px-4 py-8">
+        <InlineLeadForm
+          defaultArea={data.name}
+          heading={`Free Inspection in ${data.name}`}
+          subheading="We respond within 1 hour · Same-day available"
+        />
       </section>
 
       {/* Content */}
@@ -206,11 +227,11 @@ export default async function SuburbPage({ params }: { params: Promise<{ slug: s
 
             {/* Sidebar */}
             <div className="space-y-4">
-              <div className="bg-[#1a6b3c] rounded-xl p-6 text-white">
-                <h3 className="font-semibold text-[16px] mb-2">Free Inspection for {data.name}</h3>
-                <a href={PHONE_HREF} className="text-2xl font-bold block mb-2 hover:text-[#a7d9bc] transition-colors">{PHONE}</a>
-                <p className="text-[#a7d9bc] text-[13px]">Mon–Sat: 7 AM – 7 PM</p>
-              </div>
+              <InlineLeadForm
+                defaultArea={data.name}
+                heading="Free Inspection"
+                subheading="Name + phone is all we need"
+              />
 
               <div className="bg-white border border-[#d3cec6] rounded-xl p-5">
                 <h3 className="font-semibold text-[14px] mb-3">Nearby Areas We Serve</h3>
