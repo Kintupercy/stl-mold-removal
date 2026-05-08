@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { submitLead } from "@/lib/submitLead";
 
 const PHONE = "(314) 779-0000";
 const PHONE_HREF = "tel:+13147790000";
@@ -35,18 +36,19 @@ export default function ContactForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_WEB3FORMS_KEY",
-          subject: `🔴 New Mold Lead — ${form.firstName} ${form.lastName} — ${form.area}`,
-          from_name: "STL Mold Removal",
-          ...form,
-        }),
+      await submitLead({
+        name: `${form.firstName} ${form.lastName}`.trim(),
+        phone: form.phone,
+        email: form.email,
+        area: form.area,
+        issue: form.issue,
+        message: form.description,
+        source: "contact",
       });
-    } finally {
       setSubmitted(true);
+    } catch {
+      setSubmitted(true);
+    } finally {
       setLoading(false);
     }
   };
@@ -109,16 +111,11 @@ export default function ContactForm() {
               {submitted ? (
                 <div className="flex flex-col items-center justify-center h-full text-center py-16">
                   <div className="text-6xl mb-5">✅</div>
-                  <h2 className="text-2xl font-bold text-[#111111] mb-3">
-                    You&apos;re All Set!
-                  </h2>
+                  <h2 className="text-2xl font-bold text-[#111111] mb-3">You&apos;re All Set!</h2>
                   <p className="text-[#626260] text-[15px] mb-6 max-w-xs">
                     We received your request and will call you within the hour to schedule your free inspection.
                   </p>
-                  <a
-                    href={PHONE_HREF}
-                    className="bg-[#1a6b3c] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#134f2d] transition-colors"
-                  >
+                  <a href={PHONE_HREF} className="bg-[#1a6b3c] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#134f2d] transition-colors">
                     📞 Call {PHONE}
                   </a>
                 </div>
@@ -135,56 +132,41 @@ export default function ContactForm() {
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="block text-[12px] font-semibold text-[#111111] mb-1">First Name *</label>
-                        <input
-                          type="text" required
-                          value={form.firstName}
+                        <input type="text" required value={form.firstName}
                           onChange={e => setForm({ ...form, firstName: e.target.value })}
                           placeholder="Jennifer"
-                          className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] focus:outline-none focus:border-[#1a6b3c] transition-colors"
-                        />
+                          className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] focus:outline-none focus:border-[#1a6b3c] transition-colors" />
                       </div>
                       <div>
                         <label className="block text-[12px] font-semibold text-[#111111] mb-1">Last Name *</label>
-                        <input
-                          type="text" required
-                          value={form.lastName}
+                        <input type="text" required value={form.lastName}
                           onChange={e => setForm({ ...form, lastName: e.target.value })}
                           placeholder="Mitchell"
-                          className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] focus:outline-none focus:border-[#1a6b3c] transition-colors"
-                        />
+                          className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] focus:outline-none focus:border-[#1a6b3c] transition-colors" />
                       </div>
                     </div>
 
                     <div>
                       <label className="block text-[12px] font-semibold text-[#111111] mb-1">Phone Number *</label>
-                      <input
-                        type="tel" required
-                        value={form.phone}
+                      <input type="tel" required value={form.phone}
                         onChange={e => setForm({ ...form, phone: e.target.value })}
                         placeholder="(314) 000-0000"
-                        className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] focus:outline-none focus:border-[#1a6b3c] transition-colors"
-                      />
+                        className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] focus:outline-none focus:border-[#1a6b3c] transition-colors" />
                     </div>
 
                     <div>
                       <label className="block text-[12px] font-semibold text-[#111111] mb-1">Email Address</label>
-                      <input
-                        type="email"
-                        value={form.email}
+                      <input type="email" value={form.email}
                         onChange={e => setForm({ ...form, email: e.target.value })}
                         placeholder="jennifer@email.com"
-                        className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] focus:outline-none focus:border-[#1a6b3c] transition-colors"
-                      />
+                        className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] focus:outline-none focus:border-[#1a6b3c] transition-colors" />
                     </div>
 
                     <div>
                       <label className="block text-[12px] font-semibold text-[#111111] mb-1">Your City / Area *</label>
-                      <select
-                        required
-                        value={form.area}
+                      <select required value={form.area}
                         onChange={e => setForm({ ...form, area: e.target.value })}
-                        className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] bg-white focus:outline-none focus:border-[#1a6b3c] transition-colors"
-                      >
+                        className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] bg-white focus:outline-none focus:border-[#1a6b3c] transition-colors">
                         <option value="">Select your area…</option>
                         {AREAS.map(a => <option key={a} value={a}>{a}</option>)}
                       </select>
@@ -192,12 +174,9 @@ export default function ContactForm() {
 
                     <div>
                       <label className="block text-[12px] font-semibold text-[#111111] mb-1">What&apos;s the issue? *</label>
-                      <select
-                        required
-                        value={form.issue}
+                      <select required value={form.issue}
                         onChange={e => setForm({ ...form, issue: e.target.value })}
-                        className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] bg-white focus:outline-none focus:border-[#1a6b3c] transition-colors"
-                      >
+                        className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] bg-white focus:outline-none focus:border-[#1a6b3c] transition-colors">
                         <option value="">Select one…</option>
                         {ISSUES.map(i => <option key={i} value={i}>{i}</option>)}
                       </select>
@@ -205,20 +184,14 @@ export default function ContactForm() {
 
                     <div>
                       <label className="block text-[12px] font-semibold text-[#111111] mb-1">Additional Details</label>
-                      <textarea
-                        rows={3}
-                        value={form.description}
+                      <textarea rows={3} value={form.description}
                         onChange={e => setForm({ ...form, description: e.target.value })}
                         placeholder="Where did you notice the mold? How long ago? Any recent leaks or flooding?"
-                        className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] resize-none focus:outline-none focus:border-[#1a6b3c] transition-colors"
-                      />
+                        className="w-full border border-[#d3cec6] rounded-lg px-3.5 py-2.5 text-[14px] resize-none focus:outline-none focus:border-[#1a6b3c] transition-colors" />
                     </div>
 
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="w-full bg-[#1a6b3c] hover:bg-[#134f2d] disabled:opacity-60 text-white font-bold py-4 rounded-xl text-[16px] transition-colors shadow-md"
-                    >
+                    <button type="submit" disabled={loading}
+                      className="w-full bg-[#1a6b3c] hover:bg-[#134f2d] disabled:opacity-60 text-white font-bold py-4 rounded-xl text-[16px] transition-colors shadow-md">
                       {loading ? "Sending…" : "🔍 Get My Free Inspection →"}
                     </button>
 

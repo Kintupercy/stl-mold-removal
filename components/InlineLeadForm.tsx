@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { submitLead } from "@/lib/submitLead";
 
 const PHONE = "(314) 779-0000";
 const PHONE_HREF = "tel:+13147790000";
@@ -16,12 +17,14 @@ interface Props {
   defaultArea?: string;
   heading?: string;
   subheading?: string;
+  source?: string;
 }
 
 export default function InlineLeadForm({
   defaultArea = "",
   heading = "Get Your Free Inspection Today",
   subheading = "We respond within 1 hour. Same-day scheduling available.",
+  source = "inline",
 }: Props) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -31,18 +34,11 @@ export default function InlineLeadForm({
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_WEB3FORMS_KEY",
-          subject: `🔴 New Mold Lead — ${form.name} — ${form.area}`,
-          from_name: "STL Mold Removal",
-          ...form,
-        }),
-      });
-    } finally {
+      await submitLead({ ...form, source });
       setSubmitted(true);
+    } catch {
+      setSubmitted(true);
+    } finally {
       setLoading(false);
     }
   };
@@ -64,7 +60,6 @@ export default function InlineLeadForm({
 
   return (
     <div className="bg-[#111111] rounded-2xl overflow-hidden shadow-xl">
-      {/* Header */}
       <div className="bg-[#1a6b3c] px-6 py-5">
         <p className="text-white font-bold text-[18px]">{heading}</p>
         <p className="text-[#a7d9bc] text-[13px] mt-1">{subheading}</p>
@@ -103,12 +98,6 @@ export default function InlineLeadForm({
         >
           {loading ? "Sending…" : "🔍 Schedule My Free Inspection →"}
         </button>
-
-        <div className="flex justify-between pt-1">
-          {["🔒 SSL Secure", "✓ Free — No Obligation", "⚡ 1-Hour Response"].map(t => (
-            <span key={t} className="text-[#626260] text-[10px]">{t}</span>
-          ))}
-        </div>
 
         <div className="border-t border-white/10 pt-4 text-center">
           <p className="text-[#7b7b78] text-[12px] mb-1">Or call us directly</p>

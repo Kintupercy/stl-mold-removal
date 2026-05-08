@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: ["Googlebot", "Bingbot", "GPTBot", "ClaudeBot", "PerplexityBot", "ChatGPT-User"],
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin"],
       },
     ],
     sitemap: "https://stlmoldremoval.com/sitemap.xml",

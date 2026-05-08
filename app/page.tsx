@@ -141,8 +141,7 @@ export default function HomePage() {
       />
 
       {/* ── HERO ── */}
-      <section className="relative text-white overflow-hidden min-h-[600px]">
-        {/* Background image with dark overlay */}
+      <section className="relative text-white overflow-hidden min-h-[540px]">
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-bg.png"
@@ -151,68 +150,36 @@ export default function HomePage() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/85 to-black/70" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20">
-          <div className="grid md:grid-cols-[1fr_420px] gap-10 items-start">
+          <div className="grid md:grid-cols-[1fr_400px] gap-10 items-center">
 
-            {/* LEFT — Headline + trust signals */}
-            <div className="flex flex-col justify-center">
-              <div className="inline-flex items-center gap-2 bg-[#1a6b3c]/20 border border-[#1a6b3c]/40 text-[#2d8a50] text-[12px] font-semibold px-3 py-1.5 rounded-full mb-5 w-fit uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2d8a50] animate-pulse" />
-                St. Louis, Missouri
-              </div>
-
-              <h1 className="text-4xl md:text-[52px] font-bold leading-[1.05] tracking-tight mb-4">
-                Remove Mold From<br />
-                <span className="text-[#2d8a50]">Your St. Louis Home</span><br />
-                — For Good.
+            {/* LEFT — tight headline only */}
+            <div>
+              <h1 className="text-4xl md:text-[54px] font-bold leading-[1.08] tracking-tight mb-4">
+                Mold in Your<br />
+                <span className="text-[#2d8a50]">St. Louis Home?</span>
               </h1>
-
-              <p className="text-[#b0b0a8] text-[17px] leading-relaxed mb-7 max-w-lg">
-                Certified mold remediation serving all of greater St. Louis. We find the source, contain the spread, and eliminate it permanently — with a written guarantee.
+              <p className="text-[#b0b0a8] text-[18px] mb-6">
+                Free inspection · Same-day · IICRC Certified
               </p>
-
-              {/* Trust badges — like stlouishomelenders */}
-              <div className="flex flex-wrap gap-2 mb-8">
+              <div className="flex gap-6">
                 {[
-                  "✓ 100% Free Inspection",
-                  "🔒 Licensed & Insured",
-                  "⚡ Same-Day Response",
-                  "📋 Written Estimate",
-                ].map((b) => (
-                  <span key={b} className="bg-white/10 border border-white/20 text-white text-[12px] font-medium px-3 py-1.5 rounded-full">
-                    {b}
-                  </span>
-                ))}
-              </div>
-
-              {/* Stats row */}
-              <div className="flex gap-8">
-                {[
-                  { value: "500+", label: "Jobs Completed" },
-                  { value: "4.9★", label: "Avg. Rating" },
-                  { value: "$0", label: "Inspection Cost" },
+                  { value: "500+", label: "Jobs Done" },
+                  { value: "4.9★", label: "Rating" },
+                  { value: "$0", label: "Inspection" },
                 ].map((s) => (
                   <div key={s.label}>
                     <p className="text-[#2d8a50] text-2xl font-bold">{s.value}</p>
-                    <p className="text-[#7b7b78] text-[11px] uppercase tracking-wide mt-0.5">{s.label}</p>
+                    <p className="text-[#7b7b78] text-[11px] uppercase tracking-wide">{s.label}</p>
                   </div>
                 ))}
               </div>
-
-              {/* Phone fallback */}
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <p className="text-[#7b7b78] text-[12px] mb-1">Prefer to call?</p>
-                <a href={PHONE_HREF} className="text-white font-bold text-xl hover:text-[#2d8a50] transition-colors">
-                  📞 {PHONE}
-                </a>
-                <p className="text-[#626260] text-[11px] mt-1">Mon–Sat 7 AM–7 PM · Emergency line available</p>
-              </div>
             </div>
 
-            {/* RIGHT — Embedded lead capture form */}
+            {/* RIGHT — Form */}
             <div className="w-full">
               <HeroForm />
             </div>
