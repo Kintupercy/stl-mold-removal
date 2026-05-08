@@ -88,7 +88,7 @@ export default function Navbar() {
             href={PHONE_HREF}
             className="text-[15px] font-bold text-[#1a6b3c]"
           >
-            📞 {PHONE}
+            {PHONE}
           </a>
           <a
             href="/contact"

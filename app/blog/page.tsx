@@ -94,7 +94,7 @@ export default function BlogPage() {
             <p className="text-[#a7d9bc] text-[15px] mb-5">Same-day scheduling across greater St. Louis.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a href="tel:+13147790000" className="bg-white text-[#1a6b3c] font-bold px-6 py-3 rounded-lg hover:bg-[#f5f1ec] transition-colors">
-                📞 (314) 779-0000
+                (314) 779-0000
               </a>
               <Link href="/contact" className="border-2 border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors">
                 Request Online →

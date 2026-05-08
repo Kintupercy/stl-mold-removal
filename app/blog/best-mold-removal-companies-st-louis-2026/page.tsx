@@ -217,7 +217,7 @@ export default function BestMoldCompanies() {
                   </div>
                   {co.rank === 1 && (
                     <div className="mt-5 pt-4 border-t border-[#d3cec6] flex gap-3">
-                      <a href={PHONE_HREF} className="bg-[#1a6b3c] text-white font-bold px-5 py-2.5 rounded-lg text-[13px] hover:bg-[#134f2d] transition-colors">📞 {PHONE}</a>
+                      <a href={PHONE_HREF} className="bg-[#1a6b3c] text-white font-bold px-5 py-2.5 rounded-lg text-[13px] hover:bg-[#134f2d] transition-colors">{PHONE}</a>
                       <Link href="/contact" className="border border-[#1a6b3c] text-[#1a6b3c] font-semibold px-5 py-2.5 rounded-lg text-[13px] hover:bg-[#e8f5ee] transition-colors">Free Inspection →</Link>
                     </div>
                   )}
@@ -268,7 +268,7 @@ export default function BestMoldCompanies() {
             <h2 className="text-2xl font-bold mb-2">Get a Free Estimate from STL Mold Removal</h2>
             <p className="text-[#a7d9bc] mb-5">Free inspection · Same-day · Written flat-rate estimate · No obligation</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={PHONE_HREF} className="bg-white text-[#1a6b3c] font-bold px-6 py-3 rounded-lg hover:bg-[#f5f1ec] transition-colors">📞 {PHONE}</a>
+              <a href={PHONE_HREF} className="bg-white text-[#1a6b3c] font-bold px-6 py-3 rounded-lg hover:bg-[#f5f1ec] transition-colors">{PHONE}</a>
               <Link href="/contact" className="border-2 border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors">Request Free Inspection →</Link>
             </div>
           </div>

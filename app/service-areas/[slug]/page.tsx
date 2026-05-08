@@ -157,7 +157,7 @@ export default async function SuburbPage({ params }: { params: Promise<{ slug: s
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href={PHONE_HREF} className="bg-[#1a6b3c] hover:bg-[#134f2d] text-white font-semibold px-6 py-3.5 rounded-md transition-colors">
-                  📞 Call {PHONE}
+                  Call {PHONE}
                 </a>
                 <Link href="/contact" className="border-2 border-white/30 text-white font-medium px-6 py-3.5 rounded-md hover:bg-white/10 transition-colors">
                   Request Free Inspection →

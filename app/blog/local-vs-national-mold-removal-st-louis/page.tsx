@@ -187,7 +187,7 @@ export default function LocalVsNational() {
             <h2 className="text-2xl font-bold mb-2">Get a Free Estimate to Compare</h2>
             <p className="text-[#a7d9bc] mb-5">Free inspection, flat-rate written estimate. No obligation — compare us against anyone.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={PHONE_HREF} className="bg-white text-[#1a6b3c] font-bold px-6 py-3 rounded-lg hover:bg-[#f5f1ec] transition-colors">📞 {PHONE}</a>
+              <a href={PHONE_HREF} className="bg-white text-[#1a6b3c] font-bold px-6 py-3 rounded-lg hover:bg-[#f5f1ec] transition-colors">{PHONE}</a>
               <Link href="/contact" className="border-2 border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors">Request Free Inspection →</Link>
             </div>
           </div>

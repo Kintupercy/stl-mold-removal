@@ -76,7 +76,7 @@ export default function ServiceAreasPage() {
               href={PHONE_HREF}
               className="inline-block bg-[#1a6b3c] hover:bg-[#134f2d] text-white font-semibold px-6 py-3 rounded-md transition-colors"
             >
-              📞 Call {PHONE}
+              Call {PHONE}
             </a>
           </div>
         </div>

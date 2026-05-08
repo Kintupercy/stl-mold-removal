@@ -166,7 +166,7 @@ export default function DIYMoldMistakes() {
             <h2 className="text-2xl font-bold mb-2">Don&apos;t Risk Making It Worse</h2>
             <p className="text-[#a7d9bc] mb-5">Get a free professional assessment before touching the mold. We respond within 1 hour.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={PHONE_HREF} className="bg-white text-[#1a6b3c] font-bold px-6 py-3 rounded-lg hover:bg-[#f5f1ec] transition-colors">📞 {PHONE}</a>
+              <a href={PHONE_HREF} className="bg-white text-[#1a6b3c] font-bold px-6 py-3 rounded-lg hover:bg-[#f5f1ec] transition-colors">{PHONE}</a>
               <Link href="/contact" className="border-2 border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors">Request Free Inspection →</Link>
             </div>
           </div>

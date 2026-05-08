@@ -88,11 +88,11 @@ export default function FreeMoldInspection() {
             </p>
             <ul className="space-y-2 mb-4 text-[#626260] text-[15px]">
               <li className="flex items-start gap-2">
-                <span className="text-[#1a6b3c] font-bold mt-0.5">📞</span>
+                <span className="text-[#1a6b3c] font-bold mt-0.5">→</span>
                 <span>By phone: <a href={PHONE_HREF} className="text-[#1a6b3c] hover:underline">{PHONE}</a> — Mon–Sat 7 AM–7 PM</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#1a6b3c] font-bold mt-0.5">💻</span>
+                <span className="text-[#1a6b3c] font-bold mt-0.5">→</span>
                 <span>Online: <Link href="/contact" className="text-[#1a6b3c] hover:underline">Request a free inspection</Link> and we call within 1 hour</span>
               </li>
             </ul>
@@ -183,7 +183,7 @@ export default function FreeMoldInspection() {
             <h2 className="text-2xl font-bold mb-2">Schedule Your Free Inspection</h2>
             <p className="text-[#a7d9bc] mb-5">We respond within 1 hour. Same-day scheduling available across St. Louis.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={PHONE_HREF} className="bg-white text-[#1a6b3c] font-bold px-6 py-3 rounded-lg hover:bg-[#f5f1ec] transition-colors">📞 {PHONE}</a>
+              <a href={PHONE_HREF} className="bg-white text-[#1a6b3c] font-bold px-6 py-3 rounded-lg hover:bg-[#f5f1ec] transition-colors">{PHONE}</a>
               <Link href="/contact" className="border-2 border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors">Request Online →</Link>
             </div>
           </div>

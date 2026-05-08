@@ -115,7 +115,7 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a href={PHONE_HREF} className="bg-white text-[#1a6b3c] font-bold px-6 py-3 rounded-md hover:bg-[#f5f1ec] transition-colors">
-                📞 {PHONE}
+                {PHONE}
               </a>
               <Link href="/contact" className="border-2 border-white text-white font-semibold px-6 py-3 rounded-md hover:bg-white/10 transition-colors">
                 Request Free Inspection →
