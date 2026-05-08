@@ -5,7 +5,7 @@ import Image from "next/image";
 import HeroForm from "@/components/HeroForm";
 
 export const metadata: Metadata = {
-  title: "Mold Removal St. Louis, MO | STL Mold Removal",
+  title: { absolute: "Mold Removal St. Louis, MO | STL Mold Removal" },
   description:
     "Licensed mold remediation in St. Louis, MO. We remove black mold, test air quality & restore your home. Free inspection. Call (314) 779-0000 today.",
   alternates: { canonical: "https://stlmoldremoval.com" },

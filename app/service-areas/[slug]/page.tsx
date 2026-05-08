@@ -113,7 +113,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const data = suburbData[slug];
   if (!data) return {};
   return {
-    title: `Mold Removal ${data.name}, MO | STL Mold Removal`,
+    title: `Mold Removal ${data.name}, MO`,
     description: `Certified mold remediation in ${data.name}, MO. Black mold removal, basement treatment & free inspections. Call (314) 779-0000.`,
     alternates: { canonical: `https://stlmoldremoval.com/service-areas/${slug}` },
   };

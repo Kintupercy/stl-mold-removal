@@ -3,7 +3,7 @@ import Link from "next/link";
 import InlineLeadForm from "@/components/InlineLeadForm";
 
 export const metadata: Metadata = {
-  title: "Mold Remediation Services St. Louis, MO | STL Mold Removal",
+  title: "Mold Remediation Services St. Louis, MO",
   description:
     "Full-service mold remediation in St. Louis: black mold removal, basement & crawl space treatment, air testing, and post-flood response. Free inspection. Call now.",
   alternates: { canonical: "https://stlmoldremoval.com/mold-remediation" },
