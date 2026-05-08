@@ -73,6 +73,7 @@ export default function Footer() {
           <h3 className="text-white text-[13px] font-semibold uppercase tracking-wider mb-4">Company</h3>
           <ul className="space-y-2 text-[13px]">
             {[
+              ["Blog", "/blog"],
               ["FAQ", "/faq"],
               ["Contact", "/contact"],
               ["Free Inspection", "/contact"],

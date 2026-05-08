@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://stlmoldremoval.com"),
   title: {
-    default: "Mold Removal St. Louis, MO | Free Inspection | STL Mold Removal",
+    default: "Mold Removal St. Louis, MO | STL Mold Removal",
     template: "%s | STL Mold Removal",
   },
   description:
@@ -26,10 +26,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://stlmoldremoval.com",
     siteName: "STL Mold Removal",
-    title: "Mold Removal St. Louis, MO | Free Inspection | STL Mold Removal",
+    title: "Mold Removal St. Louis, MO | STL Mold Removal",
     description:
       "Licensed mold remediation in St. Louis, MO. Free inspection. Call (314) 779-0000.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/hero-bg.png", width: 1200, height: 800 }],
   },
   twitter: {
     card: "summary_large_image",

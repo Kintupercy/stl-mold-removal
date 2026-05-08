@@ -5,7 +5,7 @@ import Image from "next/image";
 import HeroForm from "@/components/HeroForm";
 
 export const metadata: Metadata = {
-  title: "Mold Removal St. Louis, MO | Free Inspection | STL Mold Removal",
+  title: "Mold Removal St. Louis, MO | STL Mold Removal",
   description:
     "Licensed mold remediation in St. Louis, MO. We remove black mold, test air quality & restore your home. Free inspection. Call (314) 779-0000 today.",
   alternates: { canonical: "https://stlmoldremoval.com" },
@@ -83,6 +83,35 @@ const faqs = [
   },
 ];
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "STL Mold Removal",
+  url: "https://stlmoldremoval.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://stlmoldremoval.com/faq",
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "STL Mold Removal",
+  url: "https://stlmoldremoval.com",
+  logo: "https://stlmoldremoval.com/logo.png",
+  telephone: "+1-314-779-0000",
+  email: "info@stlmoldremoval.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "St. Louis",
+    addressRegion: "MO",
+    addressCountry: "US",
+  },
+  sameAs: [],
+};
+
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -129,6 +158,16 @@ const serviceSchema = {
 export default function HomePage() {
   return (
     <>
+      <Script
+        id="website-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <Script
+        id="organization-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       <Script
         id="local-business-schema"
         type="application/ld+json"
@@ -282,6 +321,54 @@ export default function HomePage() {
           <div className="text-center mt-8">
             <Link href="/faq" className="text-[#1a6b3c] font-semibold hover:text-[#134f2d] transition-colors">
               See all FAQs →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FROM THE BLOG ── */}
+      <section className="py-20 bg-[#f5f1ec]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10">
+            <p className="text-[#1a6b3c] text-[13px] font-semibold uppercase tracking-widest mb-2">From the Blog</p>
+            <h2 className="text-3xl font-semibold tracking-tight">St. Louis Mold Removal Guides</h2>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5">
+            {[
+              {
+                slug: "black-mold-st-louis-homeowners-guide",
+                title: "Black Mold in St. Louis: What Homeowners Need to Know in 2026",
+                tag: "Health & Safety",
+              },
+              {
+                slug: "diy-mold-removal-mistakes",
+                title: "Why DIY Mold Removal Makes Things Worse",
+                tag: "Common Mistakes",
+              },
+              {
+                slug: "best-mold-removal-companies-st-louis-2026",
+                title: "5 Best Mold Removal Companies in St. Louis (2026)",
+                tag: "Best Of",
+              },
+            ].map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="bg-white border border-[#d3cec6] rounded-xl p-6 hover:shadow-md hover:border-[#1a6b3c] transition-all group"
+              >
+                <span className="bg-[#e8f5ee] text-[#1a6b3c] text-[11px] font-semibold px-2.5 py-1 rounded-full">
+                  {post.tag}
+                </span>
+                <h3 className="text-[15px] font-semibold text-[#111111] mt-3 mb-2 leading-snug group-hover:text-[#1a6b3c] transition-colors">
+                  {post.title}
+                </h3>
+                <p className="text-[#1a6b3c] text-[12px] font-semibold">Read article →</p>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/blog" className="text-[#1a6b3c] font-semibold hover:text-[#134f2d] transition-colors">
+              View all articles →
             </Link>
           </div>
         </div>

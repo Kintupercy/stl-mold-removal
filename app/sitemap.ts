@@ -11,11 +11,20 @@ const slugs = [
   "oakville-mo", "hazelwood-mo", "maryland-heights-mo",
 ];
 
+const blogSlugs = [
+  "black-mold-st-louis-homeowners-guide",
+  "diy-mold-removal-mistakes",
+  "free-mold-inspection-st-louis",
+  "local-vs-national-mold-removal-st-louis",
+  "best-mold-removal-companies-st-louis-2026",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const core = [
     { url: BASE, lastModified: now, changeFrequency: "weekly" as const, priority: 1.0 },
     { url: `${BASE}/mold-remediation`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
+    { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${BASE}/service-areas`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
@@ -26,5 +35,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
-  return [...core, ...areas];
+  const blog = blogSlugs.map((slug) => ({
+    url: `${BASE}/blog/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+  return [...core, ...areas, ...blog];
 }

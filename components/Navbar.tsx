@@ -9,6 +9,7 @@ const PHONE_HREF = "tel:+13147790000";
 const links = [
   { href: "/mold-remediation", label: "Services" },
   { href: "/service-areas", label: "Service Areas" },
+  { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
