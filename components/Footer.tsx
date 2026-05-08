@@ -78,7 +78,7 @@ export default function Footer() {
               ["Contact", "/contact"],
               ["Free Inspection", "/contact"],
             ].map(([label, href]) => (
-              <li key={href}>
+              <li key={label}>
                 <Link href={href} className="hover:text-white transition-colors">{label}</Link>
               </li>
             ))}
